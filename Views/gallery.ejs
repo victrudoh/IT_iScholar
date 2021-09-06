@@ -1,0 +1,52 @@
+<%- include('partials/header.ejs') %>
+
+    <div class="galleryCoverImg">
+        <div class="textGradient">
+            Welcome to our Gallery,
+            <br><small>Explore Creativity</small>
+        </div>
+        <!-- <br><br><small>Explore Creativity</small> -->
+    </div>
+
+    <div class="container">
+
+        <button class="FAB"><a href="/gallery/newpost">+</a></button>
+
+
+        <main>
+            <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-4 mt-3 mb-3 text-center">
+
+                <div class="col">
+                  <div class="card mb-4 mt-5 rounded-3 shadow-lg">
+                    <div class="card-header h-23 py-3">
+                      <h4 class="my-0"><img src="/images/wallpaperflare.com_wallpaper-2.jpg" class="img-fluid" alt="#"></h4>
+                    </div>
+                    <div class="card-body">
+                      <h1 class="card-title pricing-card-title">Caption</h1>
+                      <h3><small class="text-muted fw-normal">Description</small></h3>
+                      <h4><small class="text-muted fw-lighter">~Author~</small></h4>
+                    </div>
+                  </div>
+                </div>
+
+
+                <% posts.forEach((post)=>{%>
+                <div class="col">
+                  <div class="card mb-4 mt-5 rounded-3 shadow-lg">
+                    <div class="card-header h-23 py-3">
+                      <h4 class="my-0"><img src="<%= post.media %>" class="img-fluid" alt="#"></h4>
+                    </div>
+                    <div class="card-body">
+                      <h1 class="card-title pricing-card-title"><%= post.caption %></h1>
+                      <h3><small class="text-muted fw-normal"><%= post.description %></small></h3>
+                      <h4><small class="text-muted fw-lighter">~<%= post.author %>~</small></h4>
+                    </div>
+                  </div>
+                </div>
+                <% }) %>
+        </main>
+
+    </div>
+
+
+<%- include('partials/footer.ejs') %>
